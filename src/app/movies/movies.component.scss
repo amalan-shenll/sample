@@ -1,0 +1,34 @@
+.header{
+  text-align: center;
+  width: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:red;
+}
+.titles{
+  width: 300px;
+  background-color: #000;
+  
+}
+.title{
+  text-align: center;
+  color:#F2635F;
+  border-bottom: 1px solid #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+}
+.movieDetail{
+  width: 500px;
+  position: fixed;
+  top: 25%;
+  right: 25%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F2635F;
+  padding: 10px;
+}
+
+.movieDetail p{
+  text-align: justify;
+  text-indent: 20px;
+}
