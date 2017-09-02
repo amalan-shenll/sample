@@ -1,0 +1,8 @@
+<div>
+  Select Language:
+  <select #selLang (change)="changeLang(selLang.value)">
+    <option *ngFor="let lang of languages" value="{{lang.short}}">{{lang.label}}</option>
+  </select>
+  <h2>{{ 'welcome.text' | translate }}</h2>
+  <p>{{ 'page.lang.ngTranslateText' | translate }}</p>
+</div>

@@ -1,0 +1,10 @@
+{
+  "welcome": {
+    "text": "Hello World!"
+  },
+  "page":{
+    "lang":{
+      "ngTranslateText":"To use ngx-translate, it must first be imported and added to the imports array in the NgModule of the application."
+    }
+  }
+}
