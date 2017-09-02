@@ -15,6 +15,8 @@ import { LangComponent } from './lang/lang.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ChartComponent } from './chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 const routes: Routes = [
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'movies', component: MoviesComponent },
-  { path: 'lang', component: LangComponent }
+  { path: 'lang', component: LangComponent },
+  { path: 'chart', component: ChartComponent }
 ];
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -39,10 +42,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContactComponent,
     GalleryComponent,
     MoviesComponent,
-    LangComponent
+    LangComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({

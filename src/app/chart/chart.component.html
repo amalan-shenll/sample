@@ -1,0 +1,14 @@
+<div>
+  Select chart type:
+  <select #chartType (change)="setChart(chartType.value)">
+    <option *ngFor="let type of chartTypes" value="{{type.short}}">{{type.label}}</option>
+  </select>
+</div>
+<div class="chartHolder">
+  <canvas baseChart
+    [data]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [chartType]="lineChartType">
+  </canvas>
+</div>
