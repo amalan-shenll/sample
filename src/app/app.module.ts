@@ -10,7 +10,12 @@ import { ContactComponent } from './contact/contact.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TestService } from "./test.service";
-import { HttpModule } from "@angular/http";
+import { HttpModule, Http } from "@angular/http";
+import { LangComponent } from './lang/lang.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 const routes: Routes = [
   { path: '', pathMatch:'full',redirectTo:'home' },
@@ -18,8 +23,13 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'gallery', component: GalleryComponent },
-  { path: 'movies', component: MoviesComponent }
+  { path: 'movies', component: MoviesComponent },
+  { path: 'lang', component: LangComponent }
 ];
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -28,13 +38,22 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     GalleryComponent,
-    MoviesComponent
+    MoviesComponent,
+    LangComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   providers: [TestService],
   bootstrap: [AppComponent]
